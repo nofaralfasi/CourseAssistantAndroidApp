@@ -1,0 +1,71 @@
+package com.example.nofar.finalProject.GUI.Dialogs;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.NumberPicker;
+import android.widget.TextView;
+
+import com.example.nofar.finalProject.LOGIC.Interfaces.AddExamDialogListener;
+import com.example.nofar.finalProject.R;
+
+public class ItemDialog extends DialogFragment
+{
+    private final int MIN_VALUE = 0;
+    private String[] strs;
+    private NumberPicker picker;
+    private TextView titleText;
+    private View view;
+    AddExamDialogListener OKbtn;
+
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState)
+    {
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.item_picker, null);
+        this.view = view;
+        picker = view.findViewById(R.id.itemPicker);
+        titleText = view.findViewById(R.id.pickerText);
+        SetPickerOpt();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setView(view)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        OKbtn.OkValue(picker.getValue());
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        dialog.cancel();
+                    }
+                });
+        return builder.create();
+    }
+
+    public void setStrs(String[] strings, AddExamDialogListener OKbtn)
+    {
+        this.strs = strings;
+        this.OKbtn = OKbtn;
+    }
+
+    private void SetPickerOpt()
+    {
+        picker.setMinValue(MIN_VALUE);
+        picker.setMaxValue(strs.length - 1);
+        picker.setDisplayedValues(strs);
+        picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        picker.setWrapSelectorWheel(true);
+    }
+}

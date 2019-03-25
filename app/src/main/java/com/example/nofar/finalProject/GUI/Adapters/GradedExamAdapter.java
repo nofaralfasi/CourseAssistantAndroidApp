@@ -1,0 +1,110 @@
+package com.example.nofar.finalProject.GUI.Adapters;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.nofar.finalProject.GUI.Views.Oval;
+import com.example.nofar.finalProject.LOGIC.Core.Exam;
+import com.example.nofar.finalProject.LOGIC.Interfaces.OnLongGradedItemListener;
+import com.example.nofar.finalProject.R;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+
+public class GradedExamAdapter extends RecyclerView.Adapter<GradedExamAdapter.GradedExamViewHolder>
+{
+    private final String DATE_PATTERN = "E','dd MMM HH:mm a ";
+    private ArrayList<Exam> gradedList;
+    private OnLongGradedItemListener onLongGradedItemListener;
+
+    public GradedExamAdapter(ArrayList<Exam> gradedList, OnLongGradedItemListener onLongGradedItemListener)
+    {
+        this.onLongGradedItemListener = onLongGradedItemListener;
+        this.gradedList = gradedList;
+    }
+
+    public class GradedExamViewHolder extends ViewHolder
+    {
+        public TextView examClassText;
+        public TextView examPointsText;
+        public TextView examTermText;
+        public TextView examDateText;
+        public TextView examUngradedText;
+        public View view;
+        private ViewGroup Foreground;
+        private ViewGroup Background;
+
+        public GradedExamViewHolder(View itemView)
+        {
+            super(itemView);
+            view = itemView;
+            examClassText = itemView.findViewById(R.id.examClassText);
+            examPointsText = itemView.findViewById(R.id.examPointsText);
+            examTermText = itemView.findViewById(R.id.examTermText);
+            examDateText = itemView.findViewById(R.id.examDateText);
+            examUngradedText = itemView.findViewById(R.id.examUngradeText);
+            Foreground = itemView.findViewById(R.id.viewForeground);
+            Background = itemView.findViewById(R.id.Background);
+
+        }
+
+        @Override
+        public View getForeground()
+        {
+            return Foreground;
+        }
+
+        @Override
+        public View getBackground()
+        {
+            return Background;
+        }
+    }
+
+
+    @Override
+    public GradedExamViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.graded_exam_item, parent, false);
+        return new GradedExamViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(final GradedExamViewHolder holder, final int position)
+    {
+        Exam exam = gradedList.get(position);
+        holder.view.setOnLongClickListener(new View.OnLongClickListener()
+        {
+            @Override
+            public boolean onLongClick(View view)
+            {
+                System.out.println(holder.getAdapterPosition());
+                onLongGradedItemListener.OnLongGradedItem(holder.getAdapterPosition());
+                return true;
+            }
+        });
+        holder.examClassText.setText(exam.getCourse().getCourseName());
+        holder.examPointsText.setText(String.valueOf(exam.getCourse().getPoints()));
+        holder.examTermText.setText(exam.getTerm().toString());
+        Date date = exam.GetExamDateAsCalendar().getTime();
+        SimpleDateFormat ft = new SimpleDateFormat(DATE_PATTERN);
+        holder.examDateText.setText(ft.format(date));
+        holder.getForeground().setBackgroundColor(exam.getCourse().getCourseColor());
+        holder.examUngradedText.setBackground(new Oval(0xFFFFFFFF));
+        holder.examUngradedText.setText(String.valueOf(exam.getGrade()));
+
+    }
+
+    @Override
+    public int getItemCount()
+    {
+        return gradedList.size();
+    }
+}
+
+

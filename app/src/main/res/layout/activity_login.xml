@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signInContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="376dp"
+        android:layout_height="201dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo" />
+
+    <LinearLayout
+        android:id="@+id/signInInputContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/emailText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_text"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:hint="@string/textEmail"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/IHWBrown"
+            android:textColorHint="@color/TextHintColor"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/passwordText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_text"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:hint="@string/textPassword"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/IHWBrown"
+            android:textColorHint="@color/TextHintColor"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            android:id="@+id/buttonLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/round_button_brown"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="@string/signIn"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/IHWWhite"
+            android:textSize="20sp"
+            app:initialCornerAngle="20dp"
+            app:spinning_bar_color="@color/IHWWhite" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/signUpLink"
+        android:layout_width="fill_parent"
+        android:layout_height="24dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="@string/signUpRequest"
+        android:textSize="16sp"
+        android:visibility="visible" />
+</LinearLayout>

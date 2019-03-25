@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/swipe_uncompleted" />
+
+        <RelativeLayout
+            android:id="@+id/viewForeground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/md_deep_purple_A200"
+            android:elevation="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <TextView
+                android:id="@+id/hwName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:text="Algebra"
+                android:textColor="@color/IHWWhite"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/hwTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/hwName"
+                android:layout_alignBottom="@+id/hwName"
+                android:layout_alignParentEnd="true"
+                android:text="Wed, Feb 21 - 9:30 AM"
+                android:textColor="@color/md_green_A700"
+                android:textSize="14sp"
+                android:textStyle="normal|bold" />
+
+            <ImageView
+                android:id="@+id/hwPriority"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignLeft="@+id/hwName"
+                android:layout_below="@+id/hwName"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/high" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/hwTime"
+                android:layout_alignTop="@+id/hwPriority"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dp"
+                    android:text="@string/timeLeft"
+                    android:textColor="@color/IHWWhite" />
+
+                <TextView
+                    android:id="@+id/hwTimeLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="40"
+                    android:textColor="@color/IHWWhite" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
+</android.support.v7.widget.CardView>
+

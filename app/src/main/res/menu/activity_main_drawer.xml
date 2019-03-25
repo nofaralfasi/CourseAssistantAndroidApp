@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navHomeWork"
+            android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+            android:title="@string/navHomework" />
+        <item
+            android:id="@+id/navClasses"
+            android:icon="@drawable/ic_class_black_24dp"
+            android:title="@string/navClasses" />
+        <item
+            android:id="@+id/navExams"
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:title="@string/navExams" />
+        <item
+            android:id="@+id/navCalander"
+            android:icon="@drawable/ic_date_range_black_24dp"
+            android:title="@string/navCalendar" />
+        <item
+            android:id="@+id/navStudyGroups"
+            android:icon="@drawable/ic_friends"
+            android:title="@string/navStudyGroup" />
+        <item
+            android:id="@+id/navChatRoom"
+            android:icon="@drawable/ic_chat"
+            android:title="@string/navChatRoom" />
+    </group>
+</menu>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "893293323597",
+    "firebase_url": "https://nofaralfasi-finalproject.firebaseio.com",
+    "project_id": "nofaralfasi-finalproject",
+    "storage_bucket": "nofaralfasi-finalproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893293323597:android:8c71b70263f4a330",
+        "android_client_info": {
+          "package_name": "com.example.nofar.finalProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893293323597-7n1f9maqss1tb8s58ur3hbt6acnuto0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nofar.finalProject",
+            "certificate_hash": "41b7234c0a6afd49556fef373825e26609742fe2"
+          }
+        },
+        {
+          "client_id": "893293323597-9h7ioojf3o2q4r0lqvlr64stba8mc9sr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAohCo25pfmI2NISBt-lHoO_r5W8G4cxgs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893293323597-9h7ioojf3o2q4r0lqvlr64stba8mc9sr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
